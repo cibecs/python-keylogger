@@ -29,6 +29,7 @@ Creating a virtual environment ensures that dependencies are managed cleanly.
    ```bash
    python -m venv myvenv
    myvenv\Scripts\activate
+   ```
 
 3. Install Dependencies
 After activating the virtual environment, install the required packages:
