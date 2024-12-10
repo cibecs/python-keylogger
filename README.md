@@ -40,10 +40,8 @@ After activating the virtual environment, install the required packages:
 ### Creating an Executable
 You can create an executable file for the keylogger program using `pyinstaller`.
 
-    ```bash
-    pip install pyinstaller
-    ```
 
-    ```bash
+    pip install pyinstaller
+
+
     pyinstaller --onefile keylogger.py
-    ```
